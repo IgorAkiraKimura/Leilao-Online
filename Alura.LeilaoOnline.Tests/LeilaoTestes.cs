@@ -12,6 +12,7 @@ namespace Alura.LeilaoOnline.Tests
         public void LeilaoComTresClientes()
         {
             //Arrange
+            //Dado leilao com 3 clientes e lances realizados por eles
             var leilao = new Leilao("Van Gogh");
             var fulano = new Interessada("Fulano", leilao);
             var maria = new Interessada("Maria", leilao);
@@ -24,9 +25,12 @@ namespace Alura.LeilaoOnline.Tests
             leilao.RecebeLance(beltrano, 1400);
 
             //Act
+            //Quando o pregão/leilão termina
             leilao.TerminaPregao();
 
             //Assert
+            //Então o valor esperado é o maior valor dado
+            //   e o cliente ganhador é o que deu maior lance
             var valorEsperado = 1400;
             var valorObtido = leilao.Ganhador.Valor;
 
