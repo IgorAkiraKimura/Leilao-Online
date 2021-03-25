@@ -13,10 +13,11 @@ namespace Alura.LeilaoOnline.Tests
         public void RetornaValorSuperiorMaisProximoDadoLeilaoNessaModalidade(double valorDestino, double valorEsperado, double [] ofertas)
         {
             //Arrange
-            var leilao = new Leilao("Van Gogh");
+            var leilao = new Leilao("Van Gogh", valorDestino);
             var fulano = new Interessada("Fulano", leilao);
             var maria = new Interessada("Maria", leilao);
-            
+
+            leilao.IniciaPregao();
             for (int i = 0; i < ofertas.Length; i++)
             {
                 var valor = ofertas[i];
